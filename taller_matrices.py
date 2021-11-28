@@ -24,3 +24,7 @@ data['Nombre municipio'].replace('puerto colombia', 'PUERTO COLOMBIA', inplace=T
 data['Nombre municipio'].replace('ALBAN (SAN JOSE)', 'ALBAN', inplace=True)
 mun_afectados = data.groupby('Nombre municipio').size().shape[0]
 print(f'El número de municipios afectados es de: {mun_afectados}')
+
+# 4. Número de personas que se encuentran en atención en casa
+casa = data[data['Ubicación del caso'] == 'Casa'].shape[0]
+print(f'El número de personas que tiene atención en casa es de: {casa}')
