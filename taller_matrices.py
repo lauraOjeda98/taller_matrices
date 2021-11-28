@@ -28,3 +28,11 @@ print(f'El número de municipios afectados es de: {mun_afectados}')
 # 4. Número de personas que se encuentran en atención en casa
 casa = data[data['Ubicación del caso'] == 'Casa'].shape[0]
 print(f'El número de personas que tiene atención en casa es de: {casa}')
+
+# 5. Número de personas que se encuentran recuperados
+recuperado = data[data['Recuperado'] == 'Recuperado'].shape[0]
+print(f'El número de personas recuperadas es de: {recuperado}')
+
+# 6. Número de personas que ha fallecido
+fallecidos = data[data['Recuperado'] == 'Fallecido'].shape[0]
+print(f'El número de personas fallecidas es de: {fallecidos}')
