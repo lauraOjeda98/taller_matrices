@@ -36,3 +36,6 @@ print(f'El número de personas recuperadas es de: {recuperado}')
 # 6. Número de personas que ha fallecido
 fallecidos = data[data['Recuperado'] == 'Fallecido'].shape[0]
 print(f'El número de personas fallecidas es de: {fallecidos}')
+
+# 7. Ordenar de Mayor a menor por tipo de caso (Importado, en estudio,
+# Relacionado)
