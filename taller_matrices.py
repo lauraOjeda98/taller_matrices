@@ -17,3 +17,10 @@ print(f'El número de casos de contagios en el país es de: {casos}')
 # 2. Número de Municipios Afectados
 municipios = data['Nombre municipio'].value_counts().shape[0]
 print(f'El número de municipios afectados es de: {municipios}')
+
+# 3. Liste los municipios afectados (sin repetirlos)
+data['Nombre municipio'].replace('puerto COLOMBIA', 'PUERTO COLOMBIA', inplace=True)
+data['Nombre municipio'].replace('puerto colombia', 'PUERTO COLOMBIA', inplace=True)
+data['Nombre municipio'].replace('ALBAN (SAN JOSE)', 'ALBAN', inplace=True)
+mun_afectados = data.groupby('Nombre municipio').size().shape[0]
+print(f'El número de municipios afectados es de: {mun_afectados}')
