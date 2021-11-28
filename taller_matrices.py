@@ -9,3 +9,7 @@ import pandas as pd
 
 url = '../covid_22_noviembre.csv'
 data = pd.read_csv(url)
+
+# Número de casos de Contagiados en el País
+casos = data.shape[0]
+print(f'El número de casos de contagios en el país es de: {casos}')
