@@ -81,3 +81,7 @@ recuperados_departamento
 # 14. Liste de mayor a menor los 10 municipios con mas casos de contagiados
 lista_municipios = data['Nombre municipio'].value_counts()
 lista_municipios.head(10)
+
+# 15. Liste de mayor a menor los 10 municipios con mas casos de fallecidos
+fallecidos_municipio = lista_fallecidos['Nombre municipio'].value_counts().head(10)
+fallecidos_municipio
