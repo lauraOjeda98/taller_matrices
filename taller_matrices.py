@@ -39,3 +39,6 @@ print(f'El número de personas fallecidas es de: {fallecidos}')
 
 # 7. Ordenar de Mayor a menor por tipo de caso (Importado, en estudio,
 # Relacionado)
+importado = data[data['Tipo de contagio'] == 'Importado'].sort_values('Tipo de contagio', ascending=False)
+estudio = data[data['Tipo de contagio'] == 'En estudio'].sort_values('Tipo de contagio', ascending=False)
+relacionado = data[data['Tipo de contagio'] == 'Relacionado'].sort_values('Tipo de contagio', ascending=False)
