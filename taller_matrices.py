@@ -22,6 +22,13 @@ print(f'El número de municipios afectados es de: {municipios}')
 data['Nombre municipio'].replace('puerto COLOMBIA', 'PUERTO COLOMBIA', inplace=True)
 data['Nombre municipio'].replace('puerto colombia', 'PUERTO COLOMBIA', inplace=True)
 data['Nombre municipio'].replace('ALBAN (SAN JOSE)', 'ALBAN', inplace=True)
+data['Nombre municipio'].replace('MEDELLiN', 'MEDELLIN', inplace=True)
+data['Nombre municipio'].replace('Galapa', 'GALAPA', inplace=True)
+data['Nombre municipio'].replace('barrancabermeja', 'BARRANCABERMEJA', inplace=True)
+data['Nombre municipio'].replace('momil', 'MOMIL', inplace=True)
+data['Nombre municipio'].replace('Anserma', 'ANSERMA', inplace=True)
+data['Nombre municipio'].replace('Guepsa', 'GUEPSA', inplace=True)
+data['Nombre municipio'].replace('Pensilvania', 'PENSILVANIA', inplace=True)
 mun_afectados = data.groupby('Nombre municipio').size().shape[0]
 print(f'El número de municipios afectados es de: {mun_afectados}')
 
@@ -70,3 +77,7 @@ fallecidos_departamento
 lista_recuperados = data[data['Recuperado'] == 'Recuperado']
 recuperados_departamento = lista_recuperados['Nombre departamento'].value_counts().head(10)
 recuperados_departamento
+
+# 14. Liste de mayor a menor los 10 municipios con mas casos de contagiados
+lista_municipios = data['Nombre municipio'].value_counts()
+lista_municipios.head(10)
