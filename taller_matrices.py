@@ -85,3 +85,7 @@ lista_municipios.head(10)
 # 15. Liste de mayor a menor los 10 municipios con mas casos de fallecidos
 fallecidos_municipio = lista_fallecidos['Nombre municipio'].value_counts().head(10)
 fallecidos_municipio
+
+# 16. Liste de mayor a menor los 10 municipios con mas casos de recuperados
+recuperados_municipio = lista_recuperados['Nombre municipio'].value_counts().head(10)
+recuperados_municipio
