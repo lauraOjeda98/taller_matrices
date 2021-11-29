@@ -60,3 +60,8 @@ tipo_atencion.head()
 # 11. Liste de mayor a menor los 10 departamentos con mas casos de contagiados
 departamentos_m = lista_departamentos.sort_values(ascending=False).head(10)
 departamentos_m
+
+# 12. Liste de mayor a menor los 10 departamentos con mas casos de fallecidos
+fallecidos = data[data['Recuperado'] == 'Fallecido']
+fallecidos_departamento = fallecidos['Nombre departamento'].value_counts().head(10)
+fallecidos_departamento
