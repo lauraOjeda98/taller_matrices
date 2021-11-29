@@ -51,3 +51,7 @@ print(f'El número de departamentos afectados son de: {departamentos}')
 data['Nombre departamento'].replace('Caldas', 'CALDAS', inplace=True)
 data['Nombre departamento'].replace('Tolima', 'TOLIMA', inplace=True)
 data['Nombre departamento'].value_counts()
+
+# 10. Ordene de mayor a menor por tipo de atención
+tipo_atencion = data.sort_values('Ubicación del caso', ascending=False)
+tipo_atencion.head()
