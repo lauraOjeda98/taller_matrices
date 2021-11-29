@@ -50,8 +50,13 @@ print(f'El número de departamentos afectados son de: {departamentos}')
 # 9. Liste los departamentos afectados(sin repetirlos)
 data['Nombre departamento'].replace('Caldas', 'CALDAS', inplace=True)
 data['Nombre departamento'].replace('Tolima', 'TOLIMA', inplace=True)
-data['Nombre departamento'].value_counts()
+lista_departamentos = data['Nombre departamento'].value_counts()
+lista_departamentos
 
 # 10. Ordene de mayor a menor por tipo de atención
 tipo_atencion = data.sort_values('Ubicación del caso', ascending=False)
 tipo_atencion.head()
+
+# 11. Liste de mayor a menor los 10 departamentos con mas casos de contagiados
+departamentos_m = lista_departamentos.sort_values(ascending=False).head(10)
+departamentos_m
