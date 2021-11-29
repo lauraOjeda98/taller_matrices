@@ -7,7 +7,7 @@ Created on Sun Nov 28 13:22:55 2021
 
 import pandas as pd
 
-url = '../covid_22_noviembre.csv'
+url = 'C:/Users/laura/Documents/8VO SEMESTRE/INTELIGENCIA COMPUTACIONAL/Clase_git_ia/covid_22_noviembre.csv'
 data = pd.read_csv(url)
 
 # 1. Número de casos de Contagiados en el País
@@ -62,6 +62,11 @@ departamentos_m = lista_departamentos.sort_values(ascending=False).head(10)
 departamentos_m
 
 # 12. Liste de mayor a menor los 10 departamentos con mas casos de fallecidos
-fallecidos = data[data['Recuperado'] == 'Fallecido']
-fallecidos_departamento = fallecidos['Nombre departamento'].value_counts().head(10)
+lista_fallecidos = data[data['Recuperado'] == 'Fallecido']
+fallecidos_departamento = lista_fallecidos['Nombre departamento'].value_counts().head(10)
 fallecidos_departamento
+
+# 13. Liste de mayor a menor los 10 departamentos con mas casos de recuperados
+lista_recuperados = data[data['Recuperado'] == 'Recuperado']
+recuperados_departamento = lista_recuperados['Nombre departamento'].value_counts().head(10)
+recuperados_departamento
