@@ -42,3 +42,7 @@ print(f'El número de personas fallecidas es de: {fallecidos}')
 importado = data[data['Tipo de contagio'] == 'Importado'].sort_values('Tipo de contagio', ascending=False)
 estudio = data[data['Tipo de contagio'] == 'En estudio'].sort_values('Tipo de contagio', ascending=False)
 relacionado = data[data['Tipo de contagio'] == 'Relacionado'].sort_values('Tipo de contagio', ascending=False)
+
+# Número de departamentos afectados
+departamentos = data['Nombre departamento'].value_counts().shape[0]
+print(f'El número de departamentos afectados son de: {departamentos}')
