@@ -128,3 +128,12 @@ tasa_mortalidad = (lista_fallecidos.shape[0]/data.shape[0])*100
 tasa_recuperados = (lista_recuperados.shape[0]/data.shape[0])*100
 print(f'La tasa de mortalidad en Colombia es de: {tasa_mortalidad}')
 print(f'La tasa de recuperados en Colombia es de: {tasa_recuperados}')
+
+# 23. Liste la tasa de mortalidad y recuperación que tiene cada departamento
+mortalidad_dep = lista_fallecidos['Nombre departamento'].value_counts()
+tasa_mortalidad = (mortalidad_dep.divide(lista_departamentos, fill_value=0)).multiply(100)
+tasa_mortalidad
+
+recuperados_dep = lista_recuperados['Nombre departamento'].value_counts()
+tasa_recuperados = (recuperados_dep.divide(lista_departamentos, fill_value=0)).multiply(100)
+tasa_recuperados
