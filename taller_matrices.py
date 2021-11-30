@@ -152,3 +152,7 @@ tasa_recuperados_mun
 # 25. Liste por cada ciudad la cantidad de personas por atención
 personas_atencion = (data.groupby('Nombre municipio'))['Ubicación del caso'].value_counts()
 personas_atencion
+
+# 26. Liste el promedio de edad por sexo por cada ciudad de contagiados
+promedio_edad_mun = data.groupby(['Nombre municipio', 'Sexo'])['Edad'].mean()
+promedio_edad_mun
