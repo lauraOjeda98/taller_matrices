@@ -51,12 +51,16 @@ estudio = data[data['Tipo de contagio'] == 'En estudio'].sort_values('Tipo de co
 relacionado = data[data['Tipo de contagio'] == 'Relacionado'].sort_values('Tipo de contagio', ascending=False)
 
 # Número de departamentos afectados
+data['Nombre departamento'].replace('BARRANQUILLA', 'ATLANTICO', inplace=True)
+data['Nombre departamento'].replace('BOGOTA', 'CUNDINAMARCA', inplace=True)
+data['Nombre departamento'].replace('CARTAGENA', 'BOLIVAR', inplace=True)
+data['Nombre departamento'].replace('STA MARTA D.E.', 'MAGDALENA', inplace=True)
+data['Nombre departamento'].replace('Caldas', 'CALDAS', inplace=True)
+data['Nombre departamento'].replace('Tolima', 'TOLIMA', inplace=True)
 departamentos = data['Nombre departamento'].value_counts().shape[0]
 print(f'El número de departamentos afectados son de: {departamentos}')
 
 # 9. Liste los departamentos afectados(sin repetirlos)
-data['Nombre departamento'].replace('Caldas', 'CALDAS', inplace=True)
-data['Nombre departamento'].replace('Tolima', 'TOLIMA', inplace=True)
 lista_departamentos = data['Nombre departamento'].value_counts()
 lista_departamentos
 
@@ -89,3 +93,7 @@ fallecidos_municipio
 # 16. Liste de mayor a menor los 10 municipios con mas casos de recuperados
 recuperados_municipio = lista_recuperados['Nombre municipio'].value_counts().head(10)
 recuperados_municipio
+
+# 17. Liste agrupado por departamento y en orden de Mayor a menor las ciudades
+# con mas casos de contagiados
+grupos_departamentos = data.groupby('Nombre departamento')
