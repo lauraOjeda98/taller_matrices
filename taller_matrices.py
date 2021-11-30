@@ -6,6 +6,7 @@ Created on Sun Nov 28 13:22:55 2021
 """
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
 url = '../covid_22_noviembre.csv'
 data = pd.read_csv(url)
@@ -156,3 +157,17 @@ personas_atencion
 # 26. Liste el promedio de edad por sexo por cada ciudad de contagiados
 promedio_edad_mun = data.groupby(['Nombre municipio', 'Sexo'])['Edad'].mean()
 promedio_edad_mun
+
+# 27. Grafique las curvas de contagio, muerte y recuperación de toda Colombia acumulados
+data['fecha reporte web'] = pd.to_datetime(data['fecha reporte web'])
+data['Fecha de inicio de síntomas'] = pd.to_datetime(data['Fecha de inicio de síntomas'])
+data['Fecha de muerte'] = pd.to_datetime(data['Fecha de muerte'])
+data['Fecha de recuperación'] = pd.to_datetime(data['Fecha de recuperación'])
+data['Fecha de diagnóstico'] = pd.to_datetime(data['Fecha de diagnóstico'])
+
+print('Gráfica de contagio: ')
+data.groupby('Fecha de inicio de síntomas').size().cumsum().plot()
+print('Gráfica de recuperación: ')
+data.groupby('Fecha de recuperación').size().cumsum().plot()
+print('Gráfica de muertes: ')
+data.groupby('Fecha de muerte').size().cumsum().plot()
