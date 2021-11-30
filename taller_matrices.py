@@ -110,3 +110,11 @@ contagiados_h_m
 # ciudad por departamento
 promedio_edades = data.groupby(['Nombre departamento', 'Nombre municipio', 'Sexo'])['Edad'].mean()
 promedio_edades
+
+# 20. Liste de mayor a menor el número de contagiados por país de procedencia
+data['Nombre del país'].replace('MEXICO', 'MÉXICO', inplace=True)
+data['Nombre del país'].replace('VENEUELA', 'VENEZUELA', inplace=True)
+data['Nombre del país'].replace('ARABIA SAUDÍ', 'ARABIA SAUDITA', inplace=True)
+data['Nombre del país'].replace('REPÚBLICA DOCIMINCANA', 'REPÚBLICA DOMINICANA', inplace=True)
+contagios_pais = data['Nombre del país'].value_counts()
+contagios_pais
