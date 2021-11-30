@@ -174,6 +174,8 @@ data.groupby('Fecha de muerte').size().cumsum().plot()
 
 # 28. Grafique las curvas de contagio, muerte y recuperación de los 10
 # departamentos con mas casos de contagiados acumulados
+
+# Contagio
 leg = []
 for i in range(10):
     leg.append(str(departamentos_m.index[i]))
@@ -181,3 +183,35 @@ for i in range(10):
 for x in range(10):
     aux = data[data['Nombre departamento'] == str(departamentos_m.index[x])]
     aux.groupby('Fecha de inicio de síntomas').size().cumsum().plot().legend(leg)
+
+# Muerte
+for x in range(10):
+    aux = data[data['Nombre departamento'] == str(departamentos_m.index[x])]
+    aux.groupby('Fecha de muerte').size().cumsum().plot().legend(leg)
+
+# Recuperados
+for x in range(10):
+    aux = data[data['Nombre departamento'] == str(departamentos_m.index[x])]
+    aux.groupby('Fecha de recuperación').size().cumsum().plot().legend(leg)
+
+# 29. Grafique las curvas de contagio, muerte y recuperación de las 10
+# ciudades con mas casos de contagiados acumulados
+municipios_m = lista_municipios.head(10)
+
+leg2 = []
+for i in range(10):
+    leg2.append(str(municipios_m.index[i]))
+
+for x in range(10):
+    aux = data[data['Nombre municipio'] == str(municipios_m.index[x])]
+    aux.groupby('Fecha de inicio de síntomas').size().cumsum().plot().legend(leg2)
+
+# Muerte
+for x in range(10):
+    aux = data[data['Nombre municipio'] == str(municipios_m.index[x])]
+    aux.groupby('Fecha de muerte').size().cumsum().plot().legend(leg2)
+
+# Recuperados
+for x in range(10):
+    aux = data[data['Nombre municipio'] == str(municipios_m.index[x])]
+    aux.groupby('Fecha de recuperación').size().cumsum().plot().legend(leg2)
