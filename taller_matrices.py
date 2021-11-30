@@ -68,8 +68,8 @@ lista_departamentos
 # 10. Ordene de mayor a menor por tipo de atención
 data['Ubicación del caso'].replace('Casa', 'CASA', inplace=True)
 data['Ubicación del caso'].replace('casa', 'CASA', inplace=True)
-tipo_atencion = data.sort_values('Ubicación del caso', ascending=False)
-tipo_atencion.head()
+tipo_atencion = data['Ubicación del caso'].value_counts()
+tipo_atencion
 
 # 11. Liste de mayor a menor los 10 departamentos con mas casos de contagiados
 departamentos_m = lista_departamentos.sort_values(ascending=False).head(10)
@@ -220,3 +220,8 @@ for x in range(10):
 # Colombia.
 fallecidos_edad = lista_fallecidos['Edad'].value_counts()
 fallecidos_edad
+
+# 31. Liste el porcentaje de personas por atención de toda Colombia
+total = data.shape[0]
+porcentaje = (tipo_atencion.divide(total)).multiply(100)
+porcentaje
