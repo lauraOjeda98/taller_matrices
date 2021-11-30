@@ -122,3 +122,9 @@ contagios_pais
 # 21. Liste de mayor a menor las fechas donde se presentaron mas contagios
 fecha_contagios = data['Fecha de inicio de síntomas'].value_counts()
 fecha_contagios
+
+# 22. Diga cual es la tasa de mortalidad y recuperación que tiene toda Colombia
+tasa_mortalidad = (lista_fallecidos.shape[0]/data.shape[0])*100
+tasa_recuperados = (lista_recuperados.shape[0]/data.shape[0])*100
+print(f'La tasa de mortalidad en Colombia es de: {tasa_mortalidad}')
+print(f'La tasa de recuperados en Colombia es de: {tasa_recuperados}')
