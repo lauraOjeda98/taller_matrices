@@ -7,7 +7,7 @@ Created on Sun Nov 28 13:22:55 2021
 
 import pandas as pd
 
-url = 'C:/Users/laura/Documents/8VO SEMESTRE/INTELIGENCIA COMPUTACIONAL/Clase_git_ia/covid_22_noviembre.csv'
+url = '../covid_22_noviembre.csv'
 data = pd.read_csv(url)
 
 # 1. Número de casos de Contagiados en el País
@@ -97,3 +97,11 @@ recuperados_municipio
 # 17. Liste agrupado por departamento y en orden de Mayor a menor las ciudades
 # con mas casos de contagiados
 grupos_departamentos = data.groupby('Nombre departamento')
+orden_ciudades = grupos_departamentos['Nombre municipio'].value_counts()
+orden_ciudades
+
+# 18. Número de Mujeres y hombres contagiados por ciudad por departamento
+data.Sexo.replace('f', 'F', inplace=True)
+data.Sexo.replace('m', 'M', inplace=True)
+contagiados_h_m = (data.groupby(['Nombre departamento', 'Nombre municipio']))['Sexo'].value_counts()
+contagiados_h_m
