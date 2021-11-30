@@ -215,3 +215,8 @@ for x in range(10):
 for x in range(10):
     aux = data[data['Nombre municipio'] == str(municipios_m.index[x])]
     aux.groupby('Fecha de recuperación').size().cumsum().plot().legend(leg2)
+
+# 30. Liste de mayor a menor la cantidad de fallecidos por edad en toda
+# Colombia.
+fallecidos_edad = lista_fallecidos['Edad'].value_counts()
+fallecidos_edad
