@@ -105,3 +105,8 @@ data.Sexo.replace('f', 'F', inplace=True)
 data.Sexo.replace('m', 'M', inplace=True)
 contagiados_h_m = (data.groupby(['Nombre departamento', 'Nombre municipio']))['Sexo'].value_counts()
 contagiados_h_m
+
+# 19. Liste el promedio de edad de contagiados por hombre y mujeres por
+# ciudad por departamento
+promedio_edades = data.groupby(['Nombre departamento', 'Nombre municipio', 'Sexo'])['Edad'].mean()
+promedio_edades
