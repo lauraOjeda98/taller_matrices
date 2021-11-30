@@ -225,3 +225,6 @@ fallecidos_edad
 total = data.shape[0]
 porcentaje = (tipo_atencion.divide(total)).multiply(100)
 porcentaje
+
+# 32. Haga un gráfico de barras por atención de toda Colombia
+data.groupby('Ubicación del caso').size().plot.bar()
