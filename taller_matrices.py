@@ -137,3 +137,12 @@ tasa_mortalidad
 recuperados_dep = lista_recuperados['Nombre departamento'].value_counts()
 tasa_recuperados = (recuperados_dep.divide(lista_departamentos, fill_value=0)).multiply(100)
 tasa_recuperados
+
+# 24. Liste la tasa de mortalidad y recuperación que tiene cada ciudad
+mortalidad_mun = lista_fallecidos['Nombre municipio'].value_counts()
+tasa_mortalidad_mun = (mortalidad_mun.divide(lista_municipios, fill_value=0)).multiply(100)
+tasa_mortalidad_mun
+
+recuperados_mun = lista_recuperados['Nombre municipio'].value_counts()
+tasa_recuperados_mun = (recuperados_mun.divide(lista_municipios, fill_value=0)).multiply(100)
+tasa_recuperados_mun
