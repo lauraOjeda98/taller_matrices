@@ -118,3 +118,7 @@ data['Nombre del país'].replace('ARABIA SAUDÍ', 'ARABIA SAUDITA', inplace=True
 data['Nombre del país'].replace('REPÚBLICA DOCIMINCANA', 'REPÚBLICA DOMINICANA', inplace=True)
 contagios_pais = data['Nombre del país'].value_counts()
 contagios_pais
+
+# 21. Liste de mayor a menor las fechas donde se presentaron mas contagios
+fecha_contagios = data['Fecha de inicio de síntomas'].value_counts()
+fecha_contagios
