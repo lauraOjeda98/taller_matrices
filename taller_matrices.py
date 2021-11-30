@@ -65,6 +65,8 @@ lista_departamentos = data['Nombre departamento'].value_counts()
 lista_departamentos
 
 # 10. Ordene de mayor a menor por tipo de atención
+data['Ubicación del caso'].replace('Casa', 'CASA', inplace=True)
+data['Ubicación del caso'].replace('casa', 'CASA', inplace=True)
 tipo_atencion = data.sort_values('Ubicación del caso', ascending=False)
 tipo_atencion.head()
 
@@ -146,3 +148,7 @@ tasa_mortalidad_mun
 recuperados_mun = lista_recuperados['Nombre municipio'].value_counts()
 tasa_recuperados_mun = (recuperados_mun.divide(lista_municipios, fill_value=0)).multiply(100)
 tasa_recuperados_mun
+
+# 25. Liste por cada ciudad la cantidad de personas por atención
+personas_atencion = (data.groupby('Nombre municipio'))['Ubicación del caso'].value_counts()
+personas_atencion
