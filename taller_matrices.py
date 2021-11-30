@@ -171,3 +171,13 @@ print('Gráfica de recuperación: ')
 data.groupby('Fecha de recuperación').size().cumsum().plot()
 print('Gráfica de muertes: ')
 data.groupby('Fecha de muerte').size().cumsum().plot()
+
+# 28. Grafique las curvas de contagio, muerte y recuperación de los 10
+# departamentos con mas casos de contagiados acumulados
+leg = []
+for i in range(10):
+    leg.append(str(departamentos_m.index[i]))
+
+for x in range(10):
+    aux = data[data['Nombre departamento'] == str(departamentos_m.index[x])]
+    aux.groupby('Fecha de inicio de síntomas').size().cumsum().plot().legend(leg)
