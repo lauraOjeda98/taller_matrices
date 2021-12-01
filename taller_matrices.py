@@ -8,7 +8,7 @@ Created on Sun Nov 28 13:22:55 2021
 import pandas as pd
 import matplotlib.pyplot as plt
 
-url = '../covid_22_noviembre.csv'
+url = 'covid_22_noviembre.csv'
 data = pd.read_csv(url)
 
 # 1. Número de casos de Contagiados en el País
@@ -76,6 +76,7 @@ departamentos_m = lista_departamentos.sort_values(ascending=False).head(10)
 departamentos_m
 
 # 12. Liste de mayor a menor los 10 departamentos con mas casos de fallecidos
+data['Recuperado'].replace('fallecido', 'Fallecido', inplace=True)
 lista_fallecidos = data[data['Recuperado'] == 'Fallecido']
 fallecidos_departamento = lista_fallecidos['Nombre departamento'].value_counts().head(10)
 fallecidos_departamento
@@ -235,3 +236,19 @@ data.groupby('Sexo').size().plot.bar()
 # 34. Haga un gráfico de barras por tipo de toda Colombia
 data.groupby('Tipo de recuperación').size().plot.bar()
 data.groupby('Tipo de contagio').size().plot.bar()
+
+# 35. Haga un gráfico de barras del número de contagiados, recuperados y
+# fallecidos por fecha de toda Colombia
+
+# Contagiados
+print('Gráfica de contagio: ')
+c = data[data['Fecha de diagnóstico'] != 'NaT']
+c.groupby('Fecha de diagnóstico').size().plot.bar()
+
+print('Gráfica de recuperados: ')
+r = data[data['Fecha de recuperación'] != 'NaT']
+r.groupby('Fecha de recuperación').size().plot.bar()
+
+print('Gráfica de muerte: ')
+m = data[data['Fecha de muerte'] != 'NaT']
+m.groupby('Fecha de muerte').size().plot.bar()
